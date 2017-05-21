@@ -19,7 +19,7 @@
     more info, see README
 """
 
-from __future__ import absolute_import, division, print_function
+
 
 import array
 import os
@@ -29,7 +29,7 @@ import logging
 PY2 = sys.version_info[0] == 2
 if PY2:
     range = xrange
-    string_type = basestring
+    string_type = str
 else:
     # Py 3
     string_type = str

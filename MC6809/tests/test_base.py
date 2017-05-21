@@ -10,7 +10,7 @@
 """
 
 
-from __future__ import absolute_import, division, print_function
+
 
 import hashlib
 import logging
@@ -19,7 +19,7 @@ import unittest
 try:
     import queue # Python 3
 except ImportError:
-    import Queue as queue # Python 2
+    import queue as queue # Python 2
 
 from MC6809.utils.byte_word_values import bin2hexline
 from MC6809.components.cpu6809 import CPU

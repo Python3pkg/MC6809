@@ -21,7 +21,7 @@
     more info, see README
 """
 
-from __future__ import absolute_import, division, print_function
+
 
 from MC6809.utils.humanize import cc_value2txt
 

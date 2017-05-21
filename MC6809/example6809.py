@@ -54,9 +54,9 @@ class MC6809Example(object):
     def cpu_test_run(self, start, end, mem):
         assert isinstance(mem, bytearray), "given mem is not a bytearray!"
 
-        print("memory load at $%x: %s", start,
+        print(("memory load at $%x: %s", start,
             ", ".join(["$%x" % i for i in mem])
-        )
+        ))
         self.cpu.memory.load(start, mem)
         if end is None:
             end = start + len(mem)
@@ -131,19 +131,19 @@ class MC6809Example(object):
         if sys.version_info > (3,):
             data = bytes(data, encoding="ASCII")
 
-        print("Compare CRC32 with: %r" % data)
+        print(("Compare CRC32 with: %r" % data))
 
         print("\nCreate CRC32 with binascii:")
         start_time = time.time()
         excpected_crc32 = binascii.crc32(data) & 0xffffffff
         duration = time.time() - start_time
-        print("\tbinascii crc32..: $%X calculated in %.6fsec" % (excpected_crc32, duration))
+        print(("\tbinascii crc32..: $%X calculated in %.6fsec" % (excpected_crc32, duration)))
 
         print("\nCreate CRC32 with Emulated 6809 CPU:")
         start_time = time.time()
         crc32_value = self.crc32(data)
         duration = time.time() - start_time
-        print("\tMC6809 crc32..: $%X calculated in %.2fsec" % (crc32_value, duration))
+        print(("\tMC6809 crc32..: $%X calculated in %.2fsec" % (crc32_value, duration)))
         print()
         if crc32_value==excpected_crc32:
             print(" *** CRC32 values from 6809 and binascii are the same, ok.\n")

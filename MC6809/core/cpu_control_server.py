@@ -16,12 +16,12 @@
     more info, see README
 """
 
-from __future__ import absolute_import, division, print_function
+
 
 try:
     from http.server import BaseHTTPRequestHandler # Python 3
 except ImportError:
-    from BaseHTTPServer import BaseHTTPRequestHandler # Python 2
+    from http.server import BaseHTTPRequestHandler # Python 2
     range = xrange
 
 
@@ -193,7 +193,7 @@ class ControlHandler(BaseHTTPRequestHandler):
         else:
             end = addr
         data = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
-        for i, a in enumerate(range(addr, end + 1)):
+        for i, a in enumerate(list(range(addr, end + 1))):
             self.cpu.write_byte(a, data[i])
         self.response("")
 
@@ -205,7 +205,7 @@ class ControlHandler(BaseHTTPRequestHandler):
         else:
             end = addr
         data = self.rfile.read(int(self.headers["Content-Length"]))
-        for i, a in enumerate(range(addr, end + 1)):
+        for i, a in enumerate(list(range(addr, end + 1))):
             self.cpu.write_byte(a, data[i])
         self.response("")
 

@@ -10,16 +10,16 @@
     :license: GNU GPL v3 or above, see LICENSE for more details.
 """
 
-from __future__ import absolute_import, division, print_function
+
 
 from MC6809.components.MC6809data.MC6809_op_data import OP_DATA
 
 
 def get_flat_opdata(OP_DATA):
     flat_opdata = {}
-    for instr_data in OP_DATA.values():
-        for mnemonic, mnemonic_data in instr_data["mnemonic"].items():
-            for op_code, op_data in mnemonic_data["ops"].items():
+    for instr_data in list(OP_DATA.values()):
+        for mnemonic, mnemonic_data in list(instr_data["mnemonic"].items()):
+            for op_code, op_data in list(mnemonic_data["ops"].items()):
                 op_data["mnemonic"] = mnemonic
                 op_data["needs_ea"] = mnemonic_data["needs_ea"]
                 for key in ("read_from_memory", "write_to_memory", "register"):

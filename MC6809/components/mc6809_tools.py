@@ -21,7 +21,7 @@
     more info, see README
 """
 
-from __future__ import absolute_import, division, print_function
+
 
 import inspect
 
@@ -36,8 +36,8 @@ if sys.version_info[0] == 3:
     import _thread
 else:
     # Python 2
-    import Queue as queue
-    import thread as _thread
+    import queue as queue
+    import _thread as _thread
     range = xrange
 
 

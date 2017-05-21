@@ -82,7 +82,7 @@ def print_unittest1(lines):
         )
         if doc:
             line = "%40s ; %s" % (line, doc)
-        print(line.rstrip())
+        print((line.rstrip()))
     print("        ])")
 
 
@@ -107,7 +107,7 @@ def print_unittest2(lines):
         )
         if doc:
             line = "%40s ; %s" % (line, doc)
-        print(line.rstrip())
+        print((line.rstrip()))
     print("        ])")
 
 
@@ -125,26 +125,26 @@ def print_bas(lines, line_no):
         )
         if doc:
             line = "%-20s ; %s" % (line, doc)
-        print(line.upper())
+        print((line.upper()))
         line_no += 10
 
         line = "%s DATA %s" % (
             line_no,
             ",".join(["%x" % i for i in hex_list])
         )
-        print(line.upper())
+        print((line.upper()))
         line_no += 10
 
 
-print("-"*79)
+print(("-"*79))
 
 print_unittest1(lines) # with address
 
-print("-"*79)
+print(("-"*79))
 
 print_unittest2(lines) # without address
 
-print("-"*79)
+print(("-"*79))
 
 # for a basic file:
 print_bas(lines,

@@ -21,7 +21,7 @@
     more info, see README
 """
 
-from __future__ import absolute_import, division, print_function
+
 
 import sys
 from MC6809.components.mc6809_cc_register import CPUConditionCodeRegisterMixin
